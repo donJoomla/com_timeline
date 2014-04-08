@@ -31,7 +31,6 @@
 		<field name="enddate" type="calendar"
             label="COM_TIMELINE_FORM_LBL_ITEM_ENDDATE"
             description="COM_TIMELINE_FORM_DESC_ITEM_ENDDATE" 
-			required="true" 
             filter="string" /> 
 
 		<field name="created_by" type="createdby" default="" 
@@ -51,7 +50,8 @@
             label="COM_TIMELINE_FORM_LBL_ITEM_MEDIA"
             description="COM_TIMELINE_FORM_DESC_ITEM_MEDIA"
             menu_published="0"
-            filter="url" /> 
+            filter="url"
+			class="input-xxlarge" /> 
 
        <field name="thumbnail" type="media"
             label="COM_TIMELINE_FORM_LBL_ITEM_THUMBNAIL"

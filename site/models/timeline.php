@@ -114,7 +114,7 @@ class TimelineModelTimeline extends JModelItem {
 			}
 			
 			$this->_item->timeline = new stdClass;
-			$this->_item->timeline->headline = $this->_item->headline;
+			$this->_item->timeline->headline = $this->_item->title;
 			$this->_item->timeline->type = $this->_item->type;
 			$this->_item->timeline->text = $this->_item->text;
 			$this->_item->timeline->asset = new stdClass;
@@ -122,7 +122,7 @@ class TimelineModelTimeline extends JModelItem {
 			$this->_item->timeline->asset->thumbnail = $this->_item->thumbnail;
 			$this->_item->timeline->asset->credit = $this->_item->credit;
 			$this->_item->timeline->asset->caption = $this->_item->caption;
-			unset($this->_item->headline, $this->_item->type, $this->_item->text, $this->_item->media, $this->_item->thumbnail, $this->_item->credit, $this->_item->caption);
+			unset($this->_item->type, $this->_item->text, $this->_item->media, $this->_item->thumbnail, $this->_item->credit, $this->_item->caption);
 			
 			// add the dates to the timeline
 			$db = JFactory::getDbo();
@@ -136,7 +136,7 @@ class TimelineModelTimeline extends JModelItem {
 			$results = $db->loadObjectList();
 			foreach($results as &$result) {
 				$result->startDate = JHtml::date($result->startDate, 'Y,m,d');
-				$result->endDate = JHtml::date($result->endDate, 'Y,m,d');
+				$result->endDate = ($result->endDate>0 ? JHtml::date($result->endDate, 'Y,m,d') : $result->startDate);
 				$result->asset = new stdClass;
 				$result->asset->media = $result->media;
 				$result->asset->thumbnail = $result->thumbnail;

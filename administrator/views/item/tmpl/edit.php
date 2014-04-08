@@ -51,35 +51,28 @@ $document->addStyleSheet('components/com_timeline/assets/css/timeline.css');
 </script>
 <form action="<?php echo JRoute::_('index.php?option=com_timeline&layout=edit&id=' . (int) $this->item->id); ?>" method="post" enctype="multipart/form-data" name="adminForm" id="item-form" class="form-validate">
   <div class="form-inline form-inline-header">
-          <div class="control-group">
-            <div class="control-label"><?php echo $this->form->getLabel('headline'); ?></div>
-            <div class="controls"><?php echo $this->form->getInput('headline'); ?></div>
-          </div>
+    <div class="control-group">
+      <div class="control-label"><?php echo $this->form->getLabel('headline'); ?></div>
+      <div class="controls"><?php echo $this->form->getInput('headline'); ?></div>
+    </div>
+    <div class="control-group">
+      <div class="control-label"><?php echo $this->form->getLabel('startdate'); ?></div>
+      <div class="controls"><?php echo $this->form->getInput('startdate'); ?> - <?php echo $this->form->getInput('enddate'); ?></div>
+    </div>
   </div>
   <div class="form-horizontal"> 
-  <?php echo JHtml::_('bootstrap.startTabSet', 'myTab', array('active' => 'general')); ?> 
-  <?php echo JHtml::_('bootstrap.addTab', 'myTab', 'general', JText::_('COM_TIMELINE_TITLE_ITEM', true)); ?>
+    <?php echo JHtml::_('bootstrap.startTabSet', 'myTab', array('active' => 'general')); ?> 
+    <?php echo JHtml::_('bootstrap.addTab', 'myTab', 'general', JText::_('COM_TIMELINE_TITLE_ITEM', true)); ?>
     <div class="row-fluid">
       <div class="span9">
         <fieldset class="adminform">
-          <div class="control-group">
-            <div class="control-label"><?php echo $this->form->getLabel('startdate'); ?></div>
-            <div class="controls"><?php echo $this->form->getInput('startdate'); ?> - <?php echo $this->form->getInput('enddate'); ?></div>
-          </div>
-          <div class="control-group">
-            <div class="control-label"><?php echo $this->form->getLabel('text'); ?></div>
-            <div class="controls"><?php echo $this->form->getInput('text'); ?></div>
-          </div>
-          <div class="control-group">
-            <div class="control-label"><?php echo $this->form->getLabel('classname'); ?></div>
-            <div class="controls"><?php echo $this->form->getInput('classname'); ?></div>
-          </div>
+          <div class="control-group"> <?php echo $this->form->getInput('text'); ?> </div>
         </fieldset>
       </div>
       <div class="span3">
         <fieldset class="form-vertical">
           <div class="control-group">
-          <?php
+            <?php
 				foreach((array)$this->item->timeline as $value): 
 					if(!is_array($value)):
 						echo '<input type="hidden" class="timeline" name="jform[timelinehidden]['.$value.']" value="'.$value.'" />';
@@ -98,35 +91,40 @@ $document->addStyleSheet('components/com_timeline/assets/css/timeline.css');
             <div class="controls"><?php echo $this->form->getInput('state'); ?></div>
           </div>
           <div class="control-group">
-            <div class="control-label"><?php echo $this->form->getLabel('created_by'); ?></div>
-            <div class="controls"><?php echo $this->form->getInput('created_by'); ?></div>
+            <div class="control-label"><?php echo $this->form->getLabel('classname'); ?></div>
+            <div class="controls"><?php echo $this->form->getInput('classname'); ?></div>
           </div>
           <div class="control-group">
             <div class="control-label"><?php echo $this->form->getLabel('id'); ?></div>
             <div class="controls"><?php echo $this->form->getInput('id'); ?></div>
           </div>
+          <div class="control-group">
+            <div class="control-label"><?php echo $this->form->getLabel('created_by'); ?></div>
+            <div class="controls"><?php echo $this->form->getInput('created_by'); ?></div>
+          </div>
         </fieldset>
       </div>
     </div>
-    <?php echo JHtml::_('bootstrap.endTab'); ?>
+    <?php echo JHtml::_('bootstrap.endTab'); ?> 
 	<?php echo JHtml::_('bootstrap.addTab', 'myTab', 'media', JText::_('COM_TIMELINE_FORM_LBL_ITEM_MEDIA', true)); ?>
-          <div class="control-group">
-            <div class="control-label"><?php echo $this->form->getLabel('media'); ?></div>
-            <div class="controls"><?php echo $this->form->getInput('media'); ?></div>
-          </div>
-          <div class="control-group">
-            <div class="control-label"><?php echo $this->form->getLabel('thumbnail'); ?></div>
-            <div class="controls"><?php echo $this->form->getInput('thumbnail'); ?></div>
-          </div>
-          <div class="control-group">
-            <div class="control-label"><?php echo $this->form->getLabel('credit'); ?></div>
-            <div class="controls"><?php echo $this->form->getInput('credit'); ?></div>
-          </div>
-          <div class="control-group">
-            <div class="control-label"><?php echo $this->form->getLabel('caption'); ?></div>
-            <div class="controls"><?php echo $this->form->getInput('caption'); ?></div>
-          </div>
-    <?php echo JHtml::_('bootstrap.endTab'); ?> <?php echo JHtml::_('bootstrap.endTabSet'); ?>
+    <div class="control-group">
+      <div class="control-label"><?php echo $this->form->getLabel('media'); ?></div>
+      <div class="controls"><?php echo $this->form->getInput('media'); ?></div>
+    </div>
+    <div class="control-group">
+      <div class="control-label"><?php echo $this->form->getLabel('thumbnail'); ?></div>
+      <div class="controls"><?php echo $this->form->getInput('thumbnail'); ?></div>
+    </div>
+    <div class="control-group">
+      <div class="control-label"><?php echo $this->form->getLabel('credit'); ?></div>
+      <div class="controls"><?php echo $this->form->getInput('credit'); ?></div>
+    </div>
+    <div class="control-group">
+      <div class="control-label"><?php echo $this->form->getLabel('caption'); ?></div>
+      <div class="controls"><?php echo $this->form->getInput('caption'); ?></div>
+    </div>
+    <?php echo JHtml::_('bootstrap.endTab'); ?> 
+	<?php echo JHtml::_('bootstrap.endTabSet'); ?>
     <input type="hidden" name="task" value="" />
-    <?php echo JHtml::_('form.token'); ?> </div>
+    <?php echo JHtml::_('form.token'); ?></div>
 </form>

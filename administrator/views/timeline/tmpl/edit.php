@@ -64,33 +64,20 @@ $document->addStyleSheet('components/com_timeline/assets/css/timeline.css');
       <div class="span9">
         <fieldset class="adminform">
           <div class="control-group">
-            <div class="control-label"><?php echo $this->form->getLabel('headline'); ?></div>
-            <div class="controls"><?php echo $this->form->getInput('headline'); ?></div>
+            <?php echo $this->form->getInput('text'); ?>
           </div>
           <div class="control-group">
             <div class="control-label"><?php echo $this->form->getLabel('type'); ?></div>
             <div class="controls"><?php echo $this->form->getInput('type'); ?></div>
           </div>
-          <div class="control-group">
-            <div class="control-label"><?php echo $this->form->getLabel('text'); ?></div>
-            <div class="controls"><?php echo $this->form->getInput('text'); ?></div>
-          </div>
-          <div class="control-group">
-            <div class="control-label"><?php echo $this->form->getLabel('media'); ?></div>
-            <div class="controls"><?php echo $this->form->getInput('media'); ?></div>
-          </div>
-          <div class="control-group">
-            <div class="control-label"><?php echo $this->form->getLabel('credit'); ?></div>
-            <div class="controls"><?php echo $this->form->getInput('credit'); ?></div>
-          </div>
-          <div class="control-group">
-            <div class="control-label"><?php echo $this->form->getLabel('caption'); ?></div>
-            <div class="controls"><?php echo $this->form->getInput('caption'); ?></div>
-          </div>
         </fieldset>
       </div>
       <div class="span3">
         <fieldset class="form-vertical">
+          <div class="control-group">
+            <div class="control-label"><?php echo $this->form->getLabel('lang'); ?></div>
+            <div class="controls"><?php echo $this->form->getInput('lang'); ?></div>
+          </div>
           <div class="control-group">
             <div class="control-label"><?php echo $this->form->getLabel('state'); ?></div>
             <div class="controls"><?php echo $this->form->getInput('state'); ?></div>
@@ -107,6 +94,20 @@ $document->addStyleSheet('components/com_timeline/assets/css/timeline.css');
       </div>
     </div>
     <?php echo JHtml::_('bootstrap.endTab'); ?>
+	<?php echo JHtml::_('bootstrap.addTab', 'myTab', 'style', JText::_('COM_TIMELINE_FORM_LBL_ITEM_MEDIA', true)); ?>
+          <div class="control-group">
+            <div class="control-label"><?php echo $this->form->getLabel('media'); ?></div>
+            <div class="controls"><?php echo $this->form->getInput('media'); ?></div>
+          </div>
+          <div class="control-group">
+            <div class="control-label"><?php echo $this->form->getLabel('credit'); ?></div>
+            <div class="controls"><?php echo $this->form->getInput('credit'); ?></div>
+          </div>
+          <div class="control-group">
+            <div class="control-label"><?php echo $this->form->getLabel('caption'); ?></div>
+            <div class="controls"><?php echo $this->form->getInput('caption'); ?></div>
+          </div>
+    <?php echo JHtml::_('bootstrap.endTab'); ?> 
 	<?php echo JHtml::_('bootstrap.addTab', 'myTab', 'options', JText::_('JOPTIONS', true)); ?>
     <div class="row-fluid">
       <div class="span6">
