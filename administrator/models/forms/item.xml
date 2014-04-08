@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset>
+		<field name="id" type="text" default="0" label="COM_TIMELINE_FORM_LBL_ITEM_ID"
+			readonly="true" class="readonly"
+            description="JGLOBAL_FIELD_ID_DESC" /> 
+		
+		<field name="timeline" type="foreignkey" class="inputbox"
+            label="COM_TIMELINE_FORM_LBL_ITEM_TIMELINE"
+            description="COM_TIMELINE_FORM_DESC_ITEM_TIMELINE" 
+			input_type="list" 
+			table="#__timeline_timelines" 
+			key_field="id" 
+			value_field="title" 
+			required="true" />
+			
+		<field name="headline" type="text"
+            label="COM_TIMELINE_FORM_LBL_ITEM_HEADLINE"
+            description="COM_TIMELINE_FORM_DESC_ITEM_HEADLINE" 
+			required="true" 
+            filter="string"
+			class="input-xxlarge input-large-text" /> 
+
+		<field name="startdate" type="calendar"
+            label="COM_TIMELINE_FORM_LBL_ITEM_STARTDATE"
+            description="COM_TIMELINE_FORM_DESC_ITEM_STARTDATE" 
+			required="true" 
+            menu_published="0"
+            filter="string" /> 
+
+		<field name="enddate" type="calendar"
+            label="COM_TIMELINE_FORM_LBL_ITEM_ENDDATE"
+            description="COM_TIMELINE_FORM_DESC_ITEM_ENDDATE" 
+			required="true" 
+            filter="string" /> 
+
+		<field name="created_by" type="createdby" default="" 
+            label="COM_TIMELINE_FORM_LBL_ITEM_CREATED_BY"
+            description="COM_TIMELINE_FORM_DESC_ITEM_CREATED_BY"  /> 
+		
+		<field name="filter_created_by" type="user" onchange="this.form.submit();" /> 
+
+		<field name="text" type="editor"
+            label="COM_TIMELINE_FORM_LBL_ITEM_TEXT"
+            description="COM_TIMELINE_FORM_DESC_ITEM_TEXT" 
+			filter="safehtml" /> 
+		
+		<field name="tag" type="tag" mode="ajax" label="Tags" description="You can have up to 6. If you define more than 6 some of them won't be displayed." multiple="true" custom="allow"  /> 
+		
+		<field name="media" type="text"
+            label="COM_TIMELINE_FORM_LBL_ITEM_MEDIA"
+            description="COM_TIMELINE_FORM_DESC_ITEM_MEDIA"
+            menu_published="0"
+            filter="url" /> 
+
+       <field name="thumbnail" type="media"
+            label="COM_TIMELINE_FORM_LBL_ITEM_THUMBNAIL"
+            description="COM_TIMELINE_FORM_DESC_ITEM_THUMBNAIL"
+			menu_published="0"
+            filter="raw"
+            directory="/" /> 
+
+       <field name="credit" type="textarea"    
+            label="COM_TIMELINE_FORM_LBL_ITEM_CREDIT"
+            description="COM_TIMELINE_FORM_DESC_ITEM_CREDIT" 
+			cols="100"
+            rows="2"
+            filter="safehtml" /> 
+
+       <field name="caption" type="textarea"
+            label="COM_TIMELINE_FORM_LBL_ITEM_CAPTION"
+            description="COM_TIMELINE_FORM_DESC_ITEM_CAPTION" 
+			cols="100"
+            rows="2"
+            filter="safehtml" /> 
+
+       <field name="classname" type="text"
+	   		label="COM_TIMELINE_FORM_LBL_ITEM_CLASSNAME"
+            description="COM_TIMELINE_FORM_DESC_ITEM_CLASSNAME" 
+            filter="string" /> 
+		
+		<field name="state" type="list"
+			label="JSTATUS"
+			description="JFIELD_PUBLISHED_DESC"
+			class="inputbox"
+			size="1"
+			default="1">
+			<option value="1">JPUBLISHED</option>
+			<option value="0">JUNPUBLISHED</option>
+		</field> 
+		
+		<field name="checked_out" type="hidden" filter="unset" />
+        <field name="checked_out_time" type="hidden" filter="unset" />
+
+	</fieldset>
+
+</form>

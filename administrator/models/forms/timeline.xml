@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset>
+	
+		<field name="id" type="text" default="0" label="COM_TIMELINE_FORM_LBL_TIMELINE_ID"
+            readonly="true" class="readonly"
+            description="JGLOBAL_FIELD_ID_DESC" /> 
+			
+		<field name="title" type="text"        
+            label="COM_TIMELINE_FORM_LBL_TIMELINE_TITLE"
+            description="COM_TIMELINE_FORM_DESC_TIMELINE_TITLE" 
+			required="true" 
+            filter="string"
+			class="input-xxlarge input-large-text" /> 
+		
+		<field name="created_by" type="createdby" default="" 
+            label="COM_TIMELINE_FORM_LBL_TIMELINE_CREATED_BY"
+            description="COM_TIMELINE_FORM_DESC_TIMELINE_CREATED_BY"  /> 
+
+ 
+		<field name="filter_created_by" type="user" onchange="this.form.submit();" /> 
+		
+		<field name="width" type="text"        
+            label="COM_TIMELINE_FORM_LBL_TIMELINE_WIDTH"
+            description="COM_TIMELINE_FORM_DESC_TIMELINE_WIDTH" 
+			default="100%" 
+			required="true" 
+            filter="string" /> 
+			
+		<field name="height" type="text"
+			label="COM_TIMELINE_FORM_LBL_TIMELINE_HEIGHT"
+            description="COM_TIMELINE_FORM_DESC_TIMELINE_HEIGHT" 
+            default="600" 
+            required="true"  /> 
+			
+		<field name="start_at_slide" type="foreignkey" class="inputbox"
+            label="COM_TIMELINE_FORM_LBL_TIMELINE_START_AT_SLIDE"
+            description="COM_TIMELINE_FORM_DESC_TIMELINE_START_AT_SLIDE" input_type="list" table="#__timeline_items" key_field="id" value_field="headline" /> 
+			
+		<field name="start_zoom_adjust" type="integer"        
+            label="COM_TIMELINE_FORM_LBL_TIMELINE_START_ZOOM_ADJUST"
+            description="COM_TIMELINE_FORM_DESC_TIMELINE_START_ZOOM_ADJUST" 
+			default="0" 
+			first="-10"
+            last="10"
+            step="1" /> 
+			
+		<field name="hash_bookmark" type="list"        
+            label="COM_TIMELINE_FORM_LBL_TIMELINE_HASH_BOOKMARK"
+            description="COM_TIMELINE_FORM_DESC_TIMELINE_HASH_BOOKMARK" 
+                >
+                <option value="">No</option>
+                <option value="true">Yes</option>
+        </field> 
+		
+		<field name="maptype" type="list"        
+            label="COM_TIMELINE_FORM_LBL_TIMELINE_MAPTYPE"
+            description="COM_TIMELINE_FORM_DESC_TIMELINE_MAPTYPE" 
+			default="toner" >
+                <option value="">Stamen Maps</option>
+                <option value="toner">Toner</option>
+                <option value="toner-lines">Toner-lines</option>
+                <option value="toner-labels">Toner-labels</option>
+                <option value="watercolor">Watercolor</option>
+                <option value="sterrain">Terrain</option>
+                <option value="">Google Maps</option>
+                <option value="ROADMAP">Roadmap</option>
+                <option value="TERRAIN">Terrain</option>
+                <option value="HYBRID">Hybrid</option>
+                <option value="SATELLITE">Satellite</option>
+        </field> 
+
+       <field name="font" type="list"
+            label="COM_TIMELINE_FORM_LBL_TIMELINE_FONT"
+            description="COM_TIMELINE_FORM_DESC_TIMELINE_FONT" 
+			default="Arvo-PTSans"     
+                >
+                <option value="AbrilFatface-Average">Abril Fatface &amp; Average</option>
+                <option value="Arvo-PTSans">Arvo &amp; PT Sans</option>
+                <option value="Bevan-PotanoSans">Bevan &amp; Potano Sans</option>
+                <option value="BreeSerif-OpenSans">Bree Serif &amp; Open Sans</option>
+                <option value="DroidSerif-DroidSans">Droid Serif &amp; Droid Sans</option>
+                <option value="Georgia-Helvetica">Georgia &amp; Helvetica Neue</option>
+                <option value="Lekton-Molengo">Lekton &amp; Molengo</option>
+                <option value="Merriweather-NewsCycle">Merriweather &amp; News Cycle</option>
+                <option value="NewsCycle-Merriweather">News Cycle &amp; Merriweather</option>
+                <option value="NixieOne-Ledger">Nixie One &amp; Ledger</option>
+                <option value="Pacifico-Arimo">Pacifico &amp; Arimo</option>
+                <option value="PlayfairDisplay-Muli">Playfair Display &amp; Muli</option>
+                <option value="PoiretOne-Molengo">Poiret One &amp; Molengo</option>
+                <option value="PTSerif-PTSans">PT Serif &amp; PT Sans</option>
+                <option value="PT">PT Sans &amp; PT Narrow &amp; PT Serif</option>
+                <option value="Rancho-Gudea">Rancho &amp; Gudea</option>
+                <option value="SansitaOne-Kameron">Sansita One &amp; Kameron</option>
+        </field> 
+		
+		<field name="headline" type="text"
+            label="COM_TIMELINE_FORM_LBL_TIMELINE_HEADLINE"
+            description="COM_TIMELINE_FORM_DESC_TIMELINE_HEADLINE" 
+			filter="string" /> 
+			
+		<field name="type" type="hidden"    
+            label="COM_TIMELINE_FORM_LBL_TIMELINE_TYPE"
+            description="COM_TIMELINE_FORM_DESC_TIMELINE_TYPE" 
+			default="default" 
+            filter="string" /> 
+			
+		<field name="text" type="editor"
+            label="COM_TIMELINE_FORM_LBL_TIMELINE_TEXT"
+            description="COM_TIMELINE_FORM_DESC_TIMELINE_TEXT" 
+            filter="safehtml" /> 
+			
+		<field name="media" type="text"
+            label="COM_TIMELINE_FORM_LBL_TIMELINE_MEDIA"
+            description="COM_TIMELINE_FORM_DESC_TIMELINE_MEDIA" 
+			filter="url" /> 
+			
+		<field name="credit" type="textarea"  
+            label="COM_TIMELINE_FORM_LBL_TIMELINE_CREDIT"
+            description="COM_TIMELINE_FORM_DESC_TIMELINE_CREDIT" 
+            cols="100"
+            rows="2"
+            filter="safehtml" /> 
+			
+		<field name="caption" type="textarea"
+            label="COM_TIMELINE_FORM_LBL_TIMELINE_CAPTION"
+            description="COM_TIMELINE_FORM_DESC_TIMELINE_CAPTION" 
+            menu_published="0"
+            cols="100"
+            rows="2"
+            filter="safehtml" /> 
+			
+		<field
+			name="state"
+			type="list"
+			label="JSTATUS"
+			description="JFIELD_PUBLISHED_DESC"
+			class="inputbox"
+			size="1"
+			default="1">
+			<option value="1">JPUBLISHED</option>
+			<option value="0">JUNPUBLISHED</option>
+		</field> 
+		
+		<field name="checked_out" type="hidden" filter="unset" />
+        <field name="checked_out_time" type="hidden" filter="unset" />
+
+	</fieldset>
+
+</form>
