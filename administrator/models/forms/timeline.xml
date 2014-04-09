@@ -130,8 +130,7 @@
        <field name="font" type="list"
             label="COM_TIMELINE_FORM_LBL_TIMELINE_FONT"
             description="COM_TIMELINE_FORM_DESC_TIMELINE_FONT" 
-			default="Arvo-PTSans"     
-                >
+			default="Arvo-PTSans">
                 <option value="AbrilFatface-Average">Abril Fatface &amp; Average</option>
                 <option value="Arvo-PTSans">Arvo &amp; PT Sans</option>
                 <option value="Bevan-PotanoSans">Bevan &amp; Potano Sans</option>

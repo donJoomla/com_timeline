@@ -28,12 +28,12 @@ $js = '
 				source:             timeline_data,
 				embed_id:           "timeline-embed",
 				start_at_end:       '.$this->item->start_at_end.',
-				start_at_slide:     "0",
+				start_at_slide:     "'.$this->item->start_at_slide.'",
 				start_zoom_adjust:  "'.$this->item->start_zoom_adjust.'",
 				hash_bookmark:      '.($this->item->hash_bookmark ? 'true' : 'false').',
 				font:               "'.$this->item->font.'",
-				debug:              true,
-				lang:               "en",
+				debug:              false,
+				lang:               "'.$this->item->lang.'",
 				maptype:            "'.$this->item->maptype.'"
 		});
     });';
