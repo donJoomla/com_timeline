@@ -5,6 +5,12 @@ Create beautiful interactive timelines using media from Twitter, Flickr, Google 
 Joomla Timeline Component is a Joomla implentation of [Timeline JS](http://timeline.knightlab.com/) by Knight Lab.  
 See http://timeline.knightlab.com/#examples for examples.
 
+## Requirements
+
+- PHP 5.3+
+- MySQL 5+
+- Joomla 3.x
+
 ## Author
 
 **Adam Bouqdib**  
