@@ -22,4 +22,4 @@ See http://timeline.knightlab.com/#examples for examples.
 
 ## Copyright and license
 
-Copyright 2013 Adam Bouqdib under [GNU GPL 2](https://github.com/donJoomla/jforms/blob/master/LICENSE)
+Copyright 2014 Adam Bouqdib under [GNU GPL 2](https://github.com/donJoomla/jforms/blob/master/LICENSE)
