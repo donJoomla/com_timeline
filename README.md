@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/donJoomla/com_timeline.svg)](https://travis-ci.org/donJoomla/com_timeline)
 Joomla Timeline Component
 ============
 Create beautiful interactive timelines using media from Twitter, Flickr, Google Maps, YouTube, Vimeo, Vine, Dailymotion, Wikipedia, SoundCloud and more.
