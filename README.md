@@ -1,8 +1,11 @@
 Joomla Timeline Component
 ============
+
+[![Build Status](https://travis-ci.org/donJoomla/com_timeline.svg)](https://travis-ci.org/donJoomla/com_timeline)
+
 Create beautiful interactive timelines using media from Twitter, Flickr, Google Maps, YouTube, Vimeo, Vine, Dailymotion, Wikipedia, SoundCloud and more.
 
-Joomla Timeline Component is a Joomla implentation of [Timeline JS](http://timeline.knightlab.com/) by Knight Lab.  
+Joomla Timeline is a Joomla implentation of [Timeline JS](http://timeline.knightlab.com/) by Knight Lab.  
 See http://timeline.knightlab.com/#examples for examples.
 
 ## Getting Started
