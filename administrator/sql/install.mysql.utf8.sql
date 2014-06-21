@@ -20,12 +20,12 @@ CREATE TABLE IF NOT EXISTS `#__timeline_timelines` (
 `media` VARCHAR(255)  NOT NULL ,
 `credit` TEXT NOT NULL ,
 `caption` TEXT NOT NULL ,
+`lang` TEXT NOT NULL ,
 PRIMARY KEY (`id`)
 ) DEFAULT COLLATE=utf8_general_ci;
 
 CREATE TABLE IF NOT EXISTS `#__timeline_items` (
 `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-
 `timeline` INT NOT NULL ,
 `state` TINYINT(1)  NOT NULL ,
 `checked_out` INT(11)  NOT NULL ,

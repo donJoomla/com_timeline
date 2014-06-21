@@ -30,7 +30,7 @@ $js = '
 				start_at_end:       '.$this->item->start_at_end.',
 				start_at_slide:     "'.$this->item->start_at_slide.'",
 				start_zoom_adjust:  "'.$this->item->start_zoom_adjust.'",
-				hash_bookmark:      '.($this->item->hash_bookmark ? 'true' : 'false').',
+				hash_bookmark:      '.$this->item->hash_bookmark.',
 				font:               "'.$this->item->font.'",
 				debug:              false,
 				lang:               "'.$this->item->lang.'",

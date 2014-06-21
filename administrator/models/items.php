@@ -81,7 +81,7 @@ class TimelineModelItems extends JModelList {
         $this->setState('params', $params);
 
         // List state information.
-        parent::populateState('a.headline', 'asc');
+        parent::populateState('a.startdate', 'asc');
     }
 
     /**
@@ -216,7 +216,7 @@ class TimelineModelItems extends JModelList {
 					}
 				}
 
-			$oneItem->timeline = !empty($textValue) ? implode(', ', $textValue) : $oneItem->timeline;
+				$oneItem->timeline = !empty($textValue) ? implode(', ', $textValue) : $oneItem->timeline;
 
 			}
 

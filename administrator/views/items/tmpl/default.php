@@ -116,14 +116,8 @@ if (!empty($this->extra_sidebar)) {
 				<th class='left'>
 				<?php echo JHtml::_('grid.sort',  'COM_TIMELINE_ITEMS_STARTDATE', 'a.startdate', $listDirn, $listOrder); ?>
 				</th>
-				<th class='left'>
-				<?php echo JHtml::_('grid.sort',  'COM_TIMELINE_ITEMS_ENDDATE', 'a.enddate', $listDirn, $listOrder); ?>
-				</th>
-				<th class='left'>
+				<th class='nowrap hidden-phone'>
 				<?php echo JHtml::_('grid.sort',  'COM_TIMELINE_ITEMS_CREATED_BY', 'a.created_by', $listDirn, $listOrder); ?>
-				</th>
-				<th class='left'>
-				<?php echo JHtml::_('grid.sort',  'COM_TIMELINE_ITEMS_TAG', 'a.tag', $listDirn, $listOrder); ?>
 				</th>
                     
                     
@@ -202,18 +196,11 @@ if (!empty($this->extra_sidebar)) {
 				<td>
 
 					<?php echo $item->startdate; ?>
+					<?php if($item->enddate>0) echo ' - '.$item->enddate; ?>
 				</td>
-				<td>
-
-					<?php echo $item->enddate; ?>
-				</td>
-				<td>
+				<td class="small hidden-phone">
 
 					<?php echo $item->created_by; ?>
-				</td>
-				<td>
-
-					<?php echo $item->tag; ?>
 				</td>
 
 

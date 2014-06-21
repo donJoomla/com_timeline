@@ -46,8 +46,10 @@
 			
 		<field name="hash_bookmark" type="list"        
             label="COM_TIMELINE_FORM_LBL_TIMELINE_HASH_BOOKMARK"
-            description="COM_TIMELINE_FORM_DESC_TIMELINE_HASH_BOOKMARK" >
-                <option value="">No</option>
+            description="COM_TIMELINE_FORM_DESC_TIMELINE_HASH_BOOKMARK"
+			default="false"
+			>
+                <option value="false">No</option>
                 <option value="true">Yes</option>
         </field> 
 		
@@ -159,6 +161,8 @@
 		<field name="text" type="editor"
             label="COM_TIMELINE_FORM_LBL_TIMELINE_TEXT"
             description="COM_TIMELINE_FORM_DESC_TIMELINE_TEXT" 
+			rows="5"
+			height="200px"
             filter="safehtml" /> 
 			
 		<field name="media" type="text"

@@ -1,77 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <form>
 	<fieldset>
-
-              <field name="id" type="text" default="0" label="COM_TIMELINE_FORM_LBL_TIMELINE_ID"
+		<field name="id" type="text" default="0" label="COM_TIMELINE_FORM_LBL_TIMELINE_ID"
             readonly="true" class="readonly"
             description="JGLOBAL_FIELD_ID_DESC" /> 
-
-       <field name="title" type="text"
-                
+			
+		<field name="title" type="text"        
             label="COM_TIMELINE_FORM_LBL_TIMELINE_TITLE"
             description="COM_TIMELINE_FORM_DESC_TIMELINE_TITLE" 
-                
-                
-                 required="true" 
+			required="true" 
             filter="string" /> 
-
-       <field name="created_by" type="createdby" default="" 
+			
+		<field name="created_by" type="createdby" default="" 
             label="COM_TIMELINE_FORM_LBL_TIMELINE_CREATED_BY"
             description="COM_TIMELINE_FORM_DESC_TIMELINE_CREATED_BY"  /> 
-
- 
+			
 		<field name="filter_created_by" type="user" onchange="this.form.submit();" /> 
-
-       <field name="width" type="text"
-                
+		
+		<field name="width" type="text"
             label="COM_TIMELINE_FORM_LBL_TIMELINE_WIDTH"
             description="COM_TIMELINE_FORM_DESC_TIMELINE_WIDTH" 
-                 default="100%" 
-                
-                 required="true" 
+			default="100%" 
+			required="true" 
             filter="string" /> 
 
        <field name="height" type="text"
-                
             label="COM_TIMELINE_FORM_LBL_TIMELINE_HEIGHT"
             description="COM_TIMELINE_FORM_DESC_TIMELINE_HEIGHT" 
-                 default="600" 
-                
-                 required="true"  /> 
-
- <field name="start_at_slide" type="foreignkey" class="inputbox"
+			default="600" 
+			required="true"  /> 
+			
+		<field name="start_at_slide" type="foreignkey" class="inputbox"
             label="COM_TIMELINE_FORM_LBL_TIMELINE_START_AT_SLIDE"
             description="COM_TIMELINE_FORM_DESC_TIMELINE_START_AT_SLIDE" input_type="list" table="#__timeline_items" key_field="id" value_field="headline" /> 
-
-       <field name="start_zoom_adjust" type="integer"
-                
+			
+		<field name="start_zoom_adjust" type="integer"        
             label="COM_TIMELINE_FORM_LBL_TIMELINE_START_ZOOM_ADJUST"
             description="COM_TIMELINE_FORM_DESC_TIMELINE_START_ZOOM_ADJUST" 
-                 default="0" 
-                
-                
-            first="-10"
+			default="0" 
+			first="-10"
             last="10"
             step="1" /> 
-
-       <field name="hash_bookmark" type="list"
-                
+			
+		<field name="hash_bookmark" type="list"
             label="COM_TIMELINE_FORM_LBL_TIMELINE_HASH_BOOKMARK"
             description="COM_TIMELINE_FORM_DESC_TIMELINE_HASH_BOOKMARK" 
-                
-                
-                >
+			>
                 <option value="">No</option>
                 <option value="true">Yes</option>
         </field> 
-
-       <field name="maptype" type="list"
-                
+		
+		<field name="maptype" type="list"
             label="COM_TIMELINE_FORM_LBL_TIMELINE_MAPTYPE"
             description="COM_TIMELINE_FORM_DESC_TIMELINE_MAPTYPE" 
-                 default="toner" 
-                
-                >
+			default="toner" 
+			>
                 <option value="">Stamen Maps</option>
                 <option value="toner">Toner</option>
                 <option value="toner-lines">Toner-lines</option>
@@ -89,7 +72,7 @@
                 
             label="COM_TIMELINE_FORM_LBL_TIMELINE_FONT"
             description="COM_TIMELINE_FORM_DESC_TIMELINE_FONT" 
-                 default="Arvo-PTSans" 
+			default="Arvo-PTSans" 
                 
                 >
                 <option value="AbrilFatface-Average">Abril Fatface &amp; Average</option>

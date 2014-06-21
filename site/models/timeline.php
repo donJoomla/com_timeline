@@ -88,66 +88,68 @@ class TimelineModelTimeline extends JModelItem {
 		
 		$this->_item->start_at_end = ($this->_item->start_at_slide >= 0 ? 'false' : 'true');
 
-			if (isset($this->_item->start_at_slide) && $this->_item->start_at_slide != '') {
-				if(is_object($this->_item->start_at_slide)){
-					$this->_item->start_at_slide = JArrayHelper::fromObject($this->_item->start_at_slide);
+		if (isset($this->_item->start_at_slide) && $this->_item->start_at_slide != '') {
+			if(is_object($this->_item->start_at_slide)){
+				$this->_item->start_at_slide = JArrayHelper::fromObject($this->_item->start_at_slide);
+			}
+			$values = (is_array($this->_item->start_at_slide)) ? $this->_item->start_at_slide : explode(',',$this->_item->start_at_slide);
+
+			$textValue = array();
+			foreach ($values as $value){
+				$db = JFactory::getDbo();
+				$query = $db->getQuery(true);
+				$query
+						->select('headline')
+						->from('`#__timeline_items`')
+						->where('id = ' .$value);
+				$db->setQuery($query);
+				$results = $db->loadObject();
+				if ($results) {
+					$textValue[] = $results->headline;
 				}
-				$values = (is_array($this->_item->start_at_slide)) ? $this->_item->start_at_slide : explode(',',$this->_item->start_at_slide);
-
-				$textValue = array();
-				foreach ($values as $value){
-					$db = JFactory::getDbo();
-					$query = $db->getQuery(true);
-					$query
-							->select('headline')
-							->from('`#__timeline_items`')
-							->where('id = ' .$value);
-					$db->setQuery($query);
-					$results = $db->loadObject();
-					if ($results) {
-						$textValue[] = $results->headline;
-					}
-				}
-
-				$this->_item->start_at_slide = !empty($textValue) ? implode(', ', $textValue) : $this->_item->start_at_slide;
-
 			}
+			$this->_item->start_at_slide = !empty($textValue) ? implode(', ', $textValue) : $this->_item->start_at_slide;
+
+		}
 			
-			$this->_item->timeline = new stdClass;
-			$this->_item->timeline->headline = $this->_item->title;
-			$this->_item->timeline->type = $this->_item->type;
-			$this->_item->timeline->text = $this->_item->text;
-			$this->_item->timeline->asset = new stdClass;
-			$this->_item->timeline->asset->media = $this->_item->media;
-			$this->_item->timeline->asset->thumbnail = $this->_item->thumbnail;
-			$this->_item->timeline->asset->credit = $this->_item->credit;
-			$this->_item->timeline->asset->caption = $this->_item->caption;
-			unset($this->_item->type, $this->_item->text, $this->_item->media, $this->_item->thumbnail, $this->_item->credit, $this->_item->caption);
-			
-			// add the dates to the timeline
-			$db = JFactory::getDbo();
-			$query = $db->getQuery(true);
-			$query
-				->select('headline, startdate AS startDate, enddate AS endDate, text, tag, media, thumbnail, credit, caption, classname')
-				->from('`#__timeline_items`')
-				->where('state = 1')
-				->where('timeline = ' .$id);
-			$db->setQuery($query);
-			$results = $db->loadObjectList();
-			foreach($results as &$result) {
-				$result->startDate = JHtml::date($result->startDate, 'Y,m,d');
-				$result->endDate = ($result->endDate>0 ? JHtml::date($result->endDate, 'Y,m,d') : $result->startDate);
-				$result->asset = new stdClass;
-				$result->asset->media = $result->media;
-				$result->asset->thumbnail = $result->thumbnail;
-				$result->asset->credit = $result->credit;
-				$result->asset->caption = $result->caption;
-				unset($result->media, $result->thumbnail, $result->credit, $result->caption);
-			}
-			if ($results) {
-				$this->_item->timeline->date = $results;
-			}
-        return json_decode(json_encode($this->filter_object($this->_item)));
+		$this->_item->timeline = new stdClass;
+		$this->_item->timeline->headline = $this->_item->title;
+		$this->_item->timeline->type = $this->_item->type;
+		if($this->_item->text) $this->_item->timeline->text = $this->_item->text;
+		$this->_item->timeline->asset = new stdClass;
+		if($this->_item->media) $this->_item->timeline->asset->media = $this->_item->media;
+		if(isset($this->_item->thumbnail) && $this->_item->thumbnail) $this->_item->timeline->asset->thumbnail = $this->_item->thumbnail;
+		if($this->_item->credit) $this->_item->timeline->asset->credit = $this->_item->credit;
+		if($this->_item->caption) $this->_item->timeline->asset->caption = $this->_item->caption;
+		unset($this->_item->type, $this->_item->text, $this->_item->media, $this->_item->thumbnail, $this->_item->credit, $this->_item->caption);
+		
+		// add the dates to the timeline
+		$db = JFactory::getDbo();
+		$query = $db->getQuery(true);
+		$query
+			->select('headline, startdate AS startDate, enddate AS endDate, text, tag, media, thumbnail, credit, caption, classname')
+			->from('`#__timeline_items`')
+			->where('state = 1')
+			->where('timeline = ' .$id);
+		$db->setQuery($query);
+		$results = $db->loadObjectList();
+		foreach($results as &$result) {
+			$result->startDate = JHtml::date($result->startDate, 'Y,m,d');
+			$result->endDate = ($result->endDate>0 ? JHtml::date($result->endDate, 'Y,m,d') : $result->startDate);
+			$result->asset = new stdClass;
+			$result->asset->media = $result->media;
+			$result->asset->thumbnail = $result->thumbnail;
+			$result->asset->credit = $result->credit;
+			$result->asset->caption = $result->caption;
+			unset($result->media, $result->thumbnail, $result->credit, $result->caption);
+		}
+		if ($results) {
+			$this->_item->timeline->date = $this->filter_object($results);
+		}
+		
+		$this->_item = json_decode(json_encode($this->_item));
+		
+        return $this->_item;
     }
 
     public function getTable($type = 'Timeline', $prefix = 'TimelineTable', $config = array()) {
@@ -249,5 +251,6 @@ class TimelineModelTimeline extends JModelItem {
 		}
 		return array_filter($input);
 	} 
+	
 
 }
