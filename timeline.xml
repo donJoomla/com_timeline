@@ -7,7 +7,7 @@
     <author>Adam Bouqdib</author>
     <authorEmail>info@donjoomla.com</authorEmail>
     <authorUrl>http://donjoomla.com</authorUrl>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <description></description>
     <install> <!-- Runs on install -->
         <sql>
@@ -55,7 +55,7 @@
         <languages folder="administrator">
 			<language tag="en-GB">language/en-GB.com_timeline.ini</language>
 			<language tag="en-GB">language/en-GB.com_timeline.sys.ini</language>
-        </languages>    
+        </languages>
 		<updateservers>
 			<server type="extension" priority="1" name="Timeline Update">http://update.donjoomla.com/timeline/com_timeline.xml</server>
 		</updateservers>

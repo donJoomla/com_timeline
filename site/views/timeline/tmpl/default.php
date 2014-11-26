@@ -18,7 +18,7 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_timeline')
 }
 JHtml::_('jquery.framework');
 $document = JFactory::getDocument();
-$document->addScript('http://cdn.knightlab.com/libs/timeline/latest/js/storyjs-embed.js');
+$document->addScript('//cdnjs.cloudflare.com/ajax/libs/timelinejs/2.35.1/js/storyjs-embed.js');
 $js = '
 		jQuery(document).ready(function() {
 			var timeline_data = {"timeline":'.json_encode($this->item->timeline).'}
