@@ -8,7 +8,7 @@ See http://timeline.knightlab.com/#examples for examples.
 
 ## Getting Started
 
-- [Download Latest Release](https://github.com/donJoomla/com_timeline/releases/download/v1.0/com_timeline-1.0-J3.zip)
+- [Download Latest Release](https://github.com/donJoomla/com_timeline/archive/master.zip)
 
 ## Requirements
 
