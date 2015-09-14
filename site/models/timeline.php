@@ -138,7 +138,7 @@ class TimelineModelTimeline extends JModelItem {
 			$result->endDate = ($result->endDate>0 ? JHtml::date($result->endDate, 'Y,m,d') : $result->startDate);
 			$result->asset = new stdClass;
 			$result->asset->media = $result->media;
-			$result->asset->thumbnail = $result->thumbnail;
+			$result->asset->thumbnail = JUri::base() . $result->thumbnail;
 			$result->asset->credit = $result->credit;
 			$result->asset->caption = $result->caption;
 			unset($result->media, $result->thumbnail, $result->credit, $result->caption);
