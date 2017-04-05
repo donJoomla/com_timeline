@@ -2,12 +2,12 @@
 <extension type="component" version="3.0" method="upgrade">
     <name>com_timeline</name>
     <creationDate>2014-04-07</creationDate>
-    <copyright>Copyright (C) 2014. All rights reserved.</copyright>
+    <copyright>Copyright (C) 2016. All rights reserved.</copyright>
     <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
     <author>Adam Bouqdib</author>
     <authorEmail>info@donjoomla.com</authorEmail>
     <authorUrl>http://donjoomla.com</authorUrl>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <description></description>
     <install> <!-- Runs on install -->
         <sql>
